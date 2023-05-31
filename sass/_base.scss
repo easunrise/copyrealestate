@@ -1,0 +1,100 @@
+//MEDIA QUERIES
+@mixin respond($breakpoint) {
+  @if $breakpoint == phone {
+    @media only screen and (max-width: 37.5em) {
+      @content;
+    }
+  }
+  @if $breakpoint == tab-port {
+    @media only screen and (max-width: 56.25em) {
+      @content;
+    }
+  }
+  @if $breakpoint == tab-land {
+    @media only screen and (max-width: 75em) {
+      @content;
+    }
+  }
+  @if $breakpoint == small-laptop {
+    @media only screen and (max-width: 93.75em) {
+      @content;
+    }
+  }
+  @if $breakpoint == laptop {
+    @media only screen and (max-width: 96.875em) {
+      @content;
+    }
+  }
+}
+// COLORS
+$color-primary-maxdark: #101d2c;
+$color-primary-meddark: #01274a;
+$color-primary-dark: #004688;
+$color-primary-medium: #3d67ae;
+$color-primary-light: #b6ccff;
+
+$color-secondary: #81223b;
+
+$color-white-light: #d2d2d2;
+$color-off-white: #dfdcdc;
+
+$color-grey-light: #c2bebe;
+$color-grey-medium: #7e7b7b;
+
+//FONTS
+$font-primary: 'Josefin Sans', sans-serif;
+$font-display: 'Nunito', sans-serif;
+
+//SHADOWS
+$light-shadow: 2px 2px 10px rgba(0, 0, 0, 0.651);
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+
+  @include respond(laptop) {
+    font-size: 58%;
+  }
+  @include respond(tab-land) {
+    font-size: 56%;
+  }
+  @include respond(tab-port) {
+    font-size: 54%;
+  }
+  @include respond(phone) {
+    font-size: 52%;
+  }
+}
+
+body {
+  background-color: $color-primary-meddark;
+
+  // GRID
+  display: grid;
+  grid-template-rows: 85vh repeat(2, min-content) 34vw repeat(4, min-content);
+  grid-template-columns:
+    minmax(1rem, 10rem) repeat(10, minmax(min-content, 1fr))
+    minmax(1rem, 10rem);
+
+  @include respond(small-laptop) {
+    grid-template-rows: 85vh repeat(2, min-content) 40vw repeat(4, min-content);
+  }
+  @include respond(tab-land) {
+    grid-template-rows: 85vh repeat(3, min-content) 50vw repeat(4, min-content);
+  }
+  @include respond(tab-port) {
+    grid-template-rows: 85vh repeat(3, min-content) min-content repeat(
+        4,
+        min-content
+      );
+  }
+}

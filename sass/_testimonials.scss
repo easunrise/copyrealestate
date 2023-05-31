@@ -1,0 +1,47 @@
+.testimonials {
+  padding: 12rem;
+  grid-column: 3 / span 8;
+  @include respond(small-laptop) {
+    grid-column: 1 / span 12;
+  }
+
+  &__container {
+    display: flex;
+
+    @include respond(tab-port) {
+      flex-direction: column;
+    }
+
+    &:first-of-type {
+      margin-top: 2rem;
+      margin-bottom: 12rem;
+    }
+  }
+
+  &__image {
+    height: 14rem;
+    border-radius: 50%;
+
+    @include respond(tab-port) {
+      width: 20vw;
+      margin-bottom: 4vh;
+      align-self: center;
+    }
+  }
+
+  &__text {
+    font-family: $font-display;
+    color: white;
+    font-size: 2.2rem;
+    margin-bottom: 4rem;
+
+    //
+  }
+  &__text-container {
+    margin-left: 6rem;
+
+    @include respond(tab-port) {
+      margin-left: 2rem;
+    }
+  }
+}

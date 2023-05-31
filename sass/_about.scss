@@ -1,0 +1,139 @@
+.about {
+  &-pictures {
+    grid-column: 1/7;
+    // background-color: $color-off-white;
+    z-index: 0;
+    background: linear-gradient(
+        to right bottom,
+        rgba($color-off-white, 0.4),
+        rgba($color-off-white, 0.4)
+      ),
+      url(../images/about/bg-test.jpg);
+    background-size: cover;
+
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(14, 1fr);
+
+    //Making the about image section invisible on portrait and changing the background of the text section
+    @include respond(tab-port) {
+      display: none;
+    }
+
+    &__img {
+      height: auto;
+      width: 100%;
+      object-fit: cover;
+      box-sizing: content-box;
+      z-index: 1;
+      padding: 1.2rem;
+      position: relative;
+      transition: transform 0.4s;
+
+      &:first-of-type {
+        grid-column: 2 / span 3;
+        grid-row: 3 / span 3;
+
+        @include respond(tab-land) {
+          grid-column: 2 / span 4;
+          grid-row: 3 / span 4;
+        }
+      }
+
+      &:last-of-type {
+        grid-column: 4 / span 3;
+        grid-row: 5 / span 4;
+
+        @include respond(tab-land) {
+          grid-column: 4 / span 4;
+          grid-row: 6 / span 5;
+        }
+      }
+
+      &:hover {
+        border: 8px solid white;
+        z-index: 3;
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  &-text {
+    background-color: $color-off-white;
+    grid-column: 7/-1;
+    display: grid;
+    grid-template-rows: 1fr min-content 1fr;
+
+    @include respond(tab-port) {
+      grid-column: 1/-1;
+      background: linear-gradient(
+          rgba($color-off-white, 0.88),
+          rgba($color-off-white, 0.88)
+        ),
+        url(../images/about/happy-fam.jpg);
+      background-size: cover;
+    }
+
+    &__nav {
+      display: flex;
+      justify-self: center;
+
+      @include respond(small-laptop) {
+        justify-self: start;
+        margin-left: 2rem;
+      }
+
+      @include respond(tab-land) {
+        justify-self: center;
+      }
+
+      @include respond(tab-port) {
+        padding-bottom: 3rem;
+      }
+    }
+
+    &__header {
+      align-self: end;
+      padding-left: 2.8vw;
+      @include respond(tab-land) {
+        letter-spacing: 1px;
+      }
+    }
+
+    &__icon {
+      fill: $color-primary-dark;
+      height: 5rem;
+      transition: all 0.2s;
+
+      @include respond(small-laptop) {
+        width: 18rem;
+      }
+      @include respond(tab-land) {
+        width: 12rem;
+      }
+      @include respond(tab-port) {
+        height: 6rem;
+      }
+      &:hover,
+      &:active {
+        fill: $color-secondary;
+        transform: scale(1.1);
+      }
+    }
+
+    &__body {
+      font-size: 2.6rem;
+      letter-spacing: 1.8px;
+
+      @include respond(tab-land) {
+        letter-spacing: 0.6px;
+      }
+      font-family: $font-display;
+      color: $color-primary-meddark;
+      margin-top: 2rem;
+      padding-left: 3.6vw;
+      padding-right: 3.6vw;
+      padding-bottom: 6rem;
+    }
+  }
+}

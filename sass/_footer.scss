@@ -1,0 +1,44 @@
+.footer {
+  background-color: $color-primary-maxdark;
+  grid-column: 1/-1;
+
+  &__list {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    width: 80vw;
+    margin: 7rem auto;
+    justify-content: space-evenly;
+
+    @include respond(tab-port) {
+      flex-direction: column;
+
+      & > * {
+        padding: 3rem;
+      }
+    }
+  }
+
+  &__link {
+    font-family: $font-primary;
+    color: $color-off-white;
+    text-decoration: none;
+    font-size: 2.2rem;
+    transition: all 0.4s;
+    background-color: rgba($color-primary-maxdark, 0);
+
+    &:hover {
+      padding: 2rem;
+      transform: scale(1.1);
+      border: 1px solid $color-off-white;
+    }
+  }
+
+  &__text {
+    font-family: $font-primary;
+    font-size: 2.2rem;
+    color: $color-off-white;
+    text-align: center;
+    padding-bottom: 4rem;
+  }
+}
