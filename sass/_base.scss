@@ -97,4 +97,7 @@ body {
         min-content
       );
   }
+  @include respond(phone) {
+    width: 96vw;
+  }
 }
