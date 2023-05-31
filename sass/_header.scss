@@ -76,5 +76,9 @@
 
     justify-self: center;
     text-shadow: $light-shadow;
+
+    @include respond(phone) {
+      text-align: center;
+    }
   }
 }
